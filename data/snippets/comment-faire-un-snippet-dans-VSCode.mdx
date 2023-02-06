@@ -1,0 +1,42 @@
+---
+title: Comment créer ses propres snippets dans VSCode ?
+date: '2023-01-06'
+tags: [IDE, VScode]
+draft: false
+summary: Voici comment créer un snippet personnalisé dans VSCode.
+images: []
+layout: PostSimple
+---
+
+1. Appuyez sur F1 pour ouvrir la palette de commandes.
+2. Dans la barre de recherche de la palette de commandes vous tapez : `snippets`
+3. Cliquez sur "Nouveau fichier d'extraits globaux". Cela ouvrira un fichier avec une extension `.code-snippets` dans lequel vous pouvez enregistrer vos snippets.
+
+Voici un exemple très simple pour générer un `console.log()` custom en Javascript.
+
+```js:maxime.code-snippets
+	"Console.log perso": {
+		"scope": "javascript,typescript",
+		"prefix": "csl",
+		"body": ["console.log(`Log de $1 dans $2:`, $1);", "$0"],
+		"description": "Mon console.log custom"
+	},
+```
+
+Ce qu'il faut retenir
+
+- La ligne 1 : c'est le titre de votre snippet tel que votre VSCode vous le proposera.
+- La ligne 2 "scope" : c'est pour définir à VSCode le language pour lequel il doit proposer ce snippet.
+- La ligne 3 " prefix" : C'est ce que vous allez taper pour lancer le snippet.
+- La ligne 4 "body" : C'est le corps du snippet. Le `$1` ou `$2` que vous voyez représente la ou votre curseur va se positionner après avoir taper la touche `Tab`. Le `$0` permet à VSCode de savoir où vous souhaitez placer votre curseur une fois que vous avez fini d'insérer les éléments dans votre snippet.
+- La ligne 5 "description" : C'est la description qui apparaîtra lorsque VSCode vous proposera le snippet.
+
+Après avoir enregistré ce snippet, vous allez taper `csl` dans un fichier Javascript, et VSCode va vous proposer votre nouveau snippet.
+
+En pratique, si vous voulez faire un log de la variable `data` dans un fichier javascript qui est nommé `MonComposant.js` cela donne :
+
+<img
+  className="inline"
+  src="/static/gif/VSCode-Snippet-execution.gif"
+  alt="VSCode Snippet execution"
+/>

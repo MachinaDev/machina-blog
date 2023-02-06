@@ -1,0 +1,146 @@
+---
+title: La méthode de tableau .filter() en Javascript
+date: '2023-01-20'
+tags: [Javascript, Array, Method]
+draft: false
+summary: Comment utiliser la méthode .filter() en Javascript.
+---
+
+<img
+  className="inline rounded-lg"
+  src="/static/images/Blog/game-of-thrones-banners.jpg"
+  alt="Games of Thrones banners"
+/>
+
+## Introduction
+
+La méthode `.filter()` de JavaScript est comme le couteau suisse de votre boîte à outils de développement. Elle vous permet de filtrer les éléments d'un tableau pour ne conserver que ceux qui répondent à un certain critère.
+Imaginez que vous avez un grand sac de bonbons et que vous voulez en extraire tous les rouges. La méthode `.filter()` serait votre alliée idéale dans cette tâche.
+Mais ce n'est pas seulement utile pour les bonbons, cette méthode peut également être utilisée pour filtrer des données de toutes sortes, comme des objets, des chaînes de caractères, des nombres, etc.
+
+En utilisant la méthode `.filter()`, vous pouvez facilement supprimer les éléments indésirables d'un tableau, comme les nombres négatifs d'un tableau de nombres, ou les articles de blog qui ne sont pas encore publiés d'un tableau d'articles. C'est un outil puissant qui vous permettra de travailler avec des données plus propres et plus organisées.
+
+Et le meilleur dans tout ça, c'est que la méthode `.filter()` est facile à utiliser, même pour les débutants en JavaScript. Il suffit de lui fournir une fonction de rappel qui définit les critères de filtrage, et le tour est joué ! Alors, si vous voulez vous débarrasser de tous ces mauvais bonbons qui traînent dans votre sac, ou si vous voulez juste nettoyer vos données, la méthode `.filter()` est là pour vous aider.
+
+## Syntaxe
+
+La syntaxe de la méthode .filter() de javascript est la suivante :
+
+```javascript
+array.filter(function(currentValue, index, arr), thisValue)
+```
+
+Comme ça, ça fait peur mais c'est tétra simple.
+En fait, la fonction de rappel (function) prend trois arguments :
+
+- **_currentValue_** : l'élément actuel dans l'array qui est en cours d'être traité
+- **_index_** (optionnel) : l'index de l'élément actuel dans l'array
+- **_arr_** (optionnel) : l'array sur lequel la méthode `filter` est appelée
+
+La méthode retourne un nouveau tableau contenant tous les éléments pour lesquels la fonction de rappel a retourné `true`.
+
+Par exemple, je veux filtrer un tableau pour qu'il me retourne seulement les nombres pairs :
+
+```javascript
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let evenNumbers = numbers.filter(function (number) {
+  return number % 2 === 0
+})
+console.log(evenNumbers) // [2, 4, 6, 8, 10]
+```
+
+Plutôt simple non ?
+
+D'ailleurs, depuis ECMAScript 6, vous pouvez utiliser une fonction fléchée pour simplifier la syntaxe:
+
+```javascript
+let evenNumbers = numbers.filter((number) => number % 2 === 0)
+```
+
+C'est encore plus lisible comme ça.
+
+## La méthode `.filter()` en Javascript Vanilla
+
+Nous allons tenter un exemple en utilisant des personnages inconnus de tous
+
+1. Commençons par créer un tableau qui contiendra les personnages de Game of Thrones
+
+   ```javascript
+   let characters = [
+     { name: 'Jon Snow', house: 'Stark' },
+     { name: 'Daenerys Targaryen', house: 'Targaryen' },
+     { name: 'Tyrion Lannister', house: 'Lannister' },
+     { name: 'Arya Stark', house: 'Stark' },
+     { name: 'Cersei Lannister', house: 'Lannister' },
+     { name: 'Sansa Stark', house: 'Stark' },
+     { name: 'Joffrey Baratheon', house: 'Baratheon' },
+     { name: 'Bran Stark', house: 'Stark' },
+   ]
+   ```
+
+   Chacun des objets de ce tableau a une propriété _name_ qui contient le nom du personnage et une propriété _house_ qui contient le nom de la maison à laquelle le personnage appartient. Ainsi pour utiliser ce tableau dans notre composant on peut l'utiliser de cette façon:
+
+   ```javascript
+   <CharacterList characters={characters} />
+   ```
+
+   N'hésitez pas à ajouter ou supprimer des personnages ou des propriétés pour l'adapter à vos besoins.
+
+2. Maintenant, nous allons utiliser la méthode `.filter()` pour filtrer les personnages de la maison Stark.
+
+   ```javascript
+   let starkCharacters = characters.filter((character) => character.house === 'Stark')
+   ```
+
+3. Pour vérifier que notre filtre fonctionne correctement, nous pouvons utiliser la méthode `.forEach()` pour afficher les noms des personnages de la maison Stark.
+
+   ```javascript
+   starkCharacters.forEach((character) => console.log(character.name))
+   ```
+
+## La méthode `.filter()` avec React
+
+1. Commençons par créer un composant de fonction React appelé _CharacterList_ qui affichera une liste de personnages de Game of Thrones à partir d'un tableau de données. Pour cela, nous allons utiliser un tableau de données qui contient les personnages de Game of Thrones et le passer en tant que propriété à notre composant _CharacterList_.
+
+   ```javascript
+   function CharacterList({ characters }) {}
+   ```
+
+1. Nous allons maintenant utiliser la méthode `.filter()` pour filtrer les personnages de la maison Stark à partir de notre tableau de personnages. Pour cela, nous allons utiliser une constante pour stocker les personnages de la maison Stark.
+
+   ```javascript
+   const starkCharacters = characters.filter((character) => character.house === 'Stark')
+   ```
+
+1. Enfin, nous allons utiliser la fonction `.map()` pour parcourir notre tableau filtré et afficher le nom des personnages de la maison Stark à l'intérieur d'une liste.
+
+   ```javascript
+   return (
+     <ul>
+       {starkCharacters.map((character, index) => (
+         <li key={index}>{character.name}</li>
+       ))}
+     </ul>
+   )
+   ```
+
+## Résumé
+
+Dans le premier exemple, nous avons créé un tableau de personnages de Game of Thrones, puis nous avons utilisé la méthode `.filter()` pour filtrer les personnages de la maison Stark. Enfin, nous avons utilisé la méthode `.forEach()` pour afficher les noms des personnages de la maison Stark.
+Dans le second exemple, nous avons créé un composant de fonction React qui prend un tableau de personnages de Game of Thrones en tant que propriété. Nous avons utilisé la méthode `.filter()` pour filtrer les personnages de la maison Stark à partir de ce tableau, puis nous avons utilisé la fonction `.map()` pour parcourir le tableau filtré et afficher le nom des personnages de la maison Stark dans une liste.
+
+## Aller plus loin ?
+
+Il est possible de combiner différentes fonctions de traitement de tableaux pour créer des filtres de données plus complexes. Vous pouvez utiliser la méthode `.filter()` pour filtrer toutes sortes de données en fonction de différents critères, comme des nombres, des objets, des chaînes de caractères, etc. Par exemple, vous pouvez utiliser la méthode `.filter()` pour filtrer les personnages qui ont un certain niveau d'expérience, puis utiliser la méthode `.sort` pour trier les personnages par ordre alphabétique.
+
+### Quelques méthodes sympatiques
+
+Les méthodes d'itération sur les tableaux en JavaScript sont incroyablement puissantes et peuvent vous aider à résoudre de nombreux problèmes courants de manière efficace et concise. Outre la méthode `.filter()`, voici quelques méthodes qui peuvent eventuellement vous intéresser :
+
+- `.map()`, qui permet de transformer chaque élément d'un tableau en un nouvel élément
+- `.reduce()`, qui permet de réduire un tableau à une seule valeur en utilisant une fonction de rappel.
+- `.forEach()` qui permet de parcourir chaque élément d'un tableau et d'exécuter une fonction sur celui-ci
+- `.every()`, `.some()`, `.find()` et `.findIndex()` qui permettent de trouver des éléments spécifiques dans un tableau
+- `.sort()` qui permet de trier les éléments d'un tableau.
+
+Chacune de ces méthodes a ses propres cas d'utilisation et peut vous aider à résoudre des problèmes spécifiques de manière efficace. Il est donc fortement recommandé de les explorer davantage pour améliorer vos compétences en programmation JavaScript.

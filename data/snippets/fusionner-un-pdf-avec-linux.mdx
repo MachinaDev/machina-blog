@@ -1,0 +1,31 @@
+---
+title: Fusionner un PDF sur Linux
+date: '2023-01-09'
+tags: [bash, PDF]
+draft: false
+summary: Fusionner un PDF sur Linux.
+images: []
+layout: PostSimple
+---
+
+1. Tout d'abord, on va installer le paquet qui permet de s'amuser avec les PDF.
+
+```bash
+sudo apt install pdftk
+```
+
+2. Ensuite, on trouve les deux, ou trois, (_ou autant que ta machine le supporte_) documents PDF que tu veux assembler.
+
+```bash
+pdftk fichierPDF1.pdf fichierPDF2.pdf fichierPDF3.pdf cat output monNouveauPDF.pdf
+```
+
+- sinon tu peux aussi fusionner tous les documents PDF qui sont dans le dossier où tu es avec la commande suivante:
+
+```bash
+pdftk *.pdf cat output monNouveauPDF.pdf
+```
+
+Ensuite, dans le dossier où tu es, tu trouveras un nouveau fichier PDF qui s'appelle monNouveauPDF.pdf qui rassemble tous les documents PDF que tu auras choisi.
+
+Facile non ?

@@ -1,0 +1,37 @@
+---
+title: Mise à jour de tous les packages d'un projet NPM
+date: '2023-01-19'
+tags: [bash, NPM]
+draft: false
+summary: Mise à jour de tous les packages d'un projet NPM.
+images: []
+layout: PostSimple
+---
+
+Pour vérifier si les librairies (packages) d'un projet sont "vieux":
+
+```bash
+npm outdated
+```
+
+La commande`outdated` va regarder tous les modules définis dans le fichier `package.json` et vérifier si il existe une version plus récente dans le registre NPM.
+
+Par exemple, admettons que la librairie `xml2js` version _0.2.6_ (situé dans le dossier `node_modules` du projet actuel) est considérée comme "vieille" (pas à jour) dans le projet actuel car la commande précédente a trouvé une version de `xml2js` plus récente _0.2.7_.
+La commande `outdated` devrait afficher :
+
+```bash
+xml2js@0.2.7 node_modules/xml2js current=0.2.6
+```
+
+Pour faire la mise de ce paquet spécifiquement, il suffit de taper la commande suivante:
+
+```bash
+npm update xml2js
+```
+
+Ou sinon, pour ceux qui aiment prendre des risques dans la vie, on peut aussi faire une mise à jour de toutes les dépendances.
+Il suffit de lancer :
+
+```bash
+npm update
+```

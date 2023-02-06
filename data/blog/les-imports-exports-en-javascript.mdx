@@ -1,0 +1,279 @@
+---
+title: Les Imports et les Exports en Javascript
+date: '2023-01-16'
+tags: [Javascript, ES6]
+draft: false
+summary: Comment utiliser les imports et les exports en Javascript.
+---
+
+## Introduction
+
+L'import/export, c'est vraiment génial comme domaine !
+Bon, certains s'enrichissent et d'autres vont en prison en pratiquant cette activité. Mais en Javascript, c'est totalement différent.
+
+Vous êtes peut-être en train de vous demander "Pourquoi diable devrais-je m'embêter avec ces imports et ces exports ?". Et bien, c'est simplement parce que ces fonctionnalités vous permettent de rendre votre code plus organisé et plus facile à maintenir. Imaginez que vous êtes un chef d'orchestre dirigeant un orchestre de milliers de musiciens (votre code). Sans les imports et les exports, cela serait comme si tous les musiciens jouaient leur propre morceau en même temps (sans aucune coordination). Mais grâce aux imports et aux exports, vous pouvez organiser vos musiciens en sections (vos modules) et les faire jouer en harmonie (partager des fonctionnalités entre différents fichiers de votre code).
+
+Alors, prêts à devenir les maîtres de l'import/export en JavaScript ? Let's go baby.
+
+## Syntaxe
+
+### Les imports
+
+La syntaxe pour importer des modules en JavaScript dépend de la version utilisée (ES6 ou ES5) et de l'environnement d'exécution (navigateur ou Node.js).
+
+Pour importer un module en utilisant la syntaxe ES6, vous pouvez utiliser l'instruction `import` suivie du nom du module et de l'éventuel nom d'alias que vous voulez donner à celui-ci. Par exemple:
+
+```javascript
+import myModule from './myModule.js'
+```
+
+ou bien:
+
+```javascript
+import { myFunction } from './myModule.js'
+```
+
+### Les exports
+
+Pour exporter un module en utilisant la syntaxe ES6, vous pouvez utiliser l'instruction `export` suivie du nom de la variable, fonction ou classe que vous voulez exporter. Par exemple:
+
+```javascript
+export const myVariable = 'Salut'
+```
+
+ou alors:
+
+```javascript
+export function myFunction() {
+  /* ... */
+}
+```
+
+ou encore:
+
+```javascript
+class MyClass {
+  /* ... */
+}
+export { MyClass }
+```
+
+Vous pouvez également exporter toutes les variables d'un fichier en utilisant l'instruction `export * from`, par exemple :
+
+```javascript
+export * from './myModule.js'
+```
+
+Pour exporter un module en utilisant la syntaxe ES5, vous pouvez utiliser `module.exports` pour exporter un objet contenant les variables, fonctions ou classes que vous voulez partager. Par exemple:
+
+```javascript
+module.exports = {
+  myVariable: 'hello world',
+  myFunction: function () {
+    /* ... */
+  },
+  MyClass: class {
+    /* ... */
+  },
+}
+```
+
+Pour importer un module en utilisant la syntaxe ES5, vous pouvez utiliser l'instruction `require` suivie du chemin vers le fichier contenant le module. Par exemple:
+
+```javascript
+var myModule = require('./myModule.js')
+```
+
+Il est important de noter que pour importer des modules dans un navigateur, vous aurez besoin d'un compilateur tel que Babel pour convertir votre code ES6 en ES5 afin qu'il soit compatible avec les navigateurs qui ne prennent pas encore en charge cette fonctionnalité.
+
+> Si vous utilisez des imports dans un environnement NodeJS hors navigateurs, vous avez toujours la possibilité d'importer vos fichers ou fonctions de la même façon que dans un navigateur. Pour cela, il faudra rajouter cette ligne dans votre fichier `package.json`
+
+```json
+"type": "module",
+```
+
+## La différence entre les exports nommés et les exports par défaut
+
+Voici un exemple d'utilisation de la différence entre les exports défault et les exports nommés en JavaScript en utilisant des événements importants de l'univers de Naruto :
+
+Tout d'abord, nous allons créer un fichier _events.js_ qui contiendra les informations sur les événements importants du manga Naruto.
+
+```javascript
+const attackOnKonoha = {
+  name: 'Attack on Konoha',
+  date: 'September 21st',
+  description: 'The village of Konoha is attacked by the organization Akatsuki',
+}
+const chuninExam = {
+  name: 'Chunin Exam',
+  date: 'October 15th',
+  description:
+    'The Chunin Exam begins, where ninja from the Hidden Leaf compete for the rank of Chunin',
+}
+const fourthGreatNinjaWar = {
+  name: 'Fourth Great Ninja War',
+  date: 'November 10th',
+  description:
+    'The Fourth Great Ninja War begins, with the Hidden Leaf, Hidden Sand, and Hidden Mist joining forces against the reanimated jinchuriki',
+}
+```
+
+Ensuite, nous allons utiliser l'instruction `export` pour exporter ces informations pour qu'elles puissent être utilisées dans d'autres fichiers. Nous pouvons exporter les variables individuellement en utilisant l'instruction `export` suivie du nom de la variable, ou nous pouvons exporter toutes les variables en utilisant l'instruction suivante:
+
+```javascript
+export { attackOnKonoha, chuninExam, fourthGreatNinjaWar }
+```
+
+Nous pouvons également utiliser l'instruction `export default` pour exporter une variable ou une fonction par défaut. Cela signifie qu'elle sera automatiquement importée lorsque le fichier est importé sans utiliser les accolades `{}`.
+
+```javascript:bigEvents.js
+const importantEvent = {
+  name: 'Final battle against Kaguya',
+  date: 'December 20th',
+  description: 'Naruto and Sasuke defeat Kaguya and bring peace to the ninja world',
+}
+export default importantEvent
+```
+
+> Petit tips: Ce qui est cool avec les exports par défaut, c'est qu'on peut les renommer quand on les importe ailleurs.
+>
+> ```javascript
+> // On renomme les données exporté du fichier bigEvents.js en megaEvents
+> import megaEvents from './bigEvents.js'
+> // On affiche l'objet importantEvent, exporter par défault de bigEvents.js
+> console.log(megaEvents)
+> ```
+
+Enfin, nous allons créer un autre fichier _index.js_ qui importera les informations sur les événements de notre fichier _bigEvents.js_ en utilisant l'instruction `import`.
+
+```javascript
+import { attackOnKonoha, chuninExam, fourthGreatNinjaWar } from './bigEvents.js'
+console.log(attackOnKonoha)
+console.log(chuninExam)
+console.log(fourthGreatNinjaWar)
+```
+
+```javascript
+import importantEvent from './bigEvents.js'
+console.log(importantEvent)
+```
+
+Ce simple exemple montre comment utiliser les exports défault et les exports nommés en javascript. Dans le premier cas, nous avons utilisé l'instruction export pour exporter les variables `attackOnKonoha`, `chuninExam` et `fourthGreatNinjaWar` qui peuvent être importées en utilisant les accolades `{}`. Dans le deuxième cas, nous avons utilisé l'instruction `export default` pour exporter la variable `importantEvent` qui sera automatiquement importée lorsque le fichier est importé sans utiliser les accolades `{}`.
+
+Attention : Il est important de noter que vous ne pouvez avoir qu'un seul `export default` par fichier, mais vous pouvez avoir autant d'exports nommés que vous le souhaitez.
+
+## Les imports/exports en Javascript Vanilla
+
+Quelques exemples pratiques se basant sur l'univers Naruto:
+
+Tout d'abord, nous allons créer un fichier _characters.js_ qui contiendra les informations sur nos personnages préférés de Naruto.
+
+```javascript
+const naruto = {
+  name: 'Naruto Uzumaki',
+  age: 12,
+  jutsu: ['Rasengan', 'Sage Mode'],
+}
+const sakura = {
+  name: 'Sakura Haruno',
+  age: 12,
+  jutsu: ['Healing Jutsu', 'Chakra Enhanced Strength'],
+}
+const sasuke = {
+  name: 'Sasuke Uchiha',
+  age: 12,
+  jutsu: ['Chidori', 'Sharingan'],
+}
+
+export { naruto, sakura, sasuke }
+```
+
+Maintenant, nous allons créer un autre fichier `index.js` qui importera les informations sur les personnages de notre fichier `characters.js`.
+
+```javascript
+import { naruto, sakura, sasuke } from './characters.js'
+console.log(naruto)
+console.log(sakura)
+console.log(sasuke)
+```
+
+Enfin, nous allons exécuter notre fichier `index.js` pour voir les informations sur les personnages s'afficher dans la console.
+
+## Les imports/exports avec React
+
+Avec React, c'est exactement pareil, nous allons d'abord créer un fichier _villages.js_ qui contiendra les informations sur les villages de Naruto.
+
+```javascript
+const konoha = {
+  name: 'Konoha',
+  founded: 'Unknown',
+  leader: 'Hokage',
+  population: '41,000',
+}
+const suna = {
+  name: 'Suna',
+  founded: 'Unknown',
+  leader: 'Kazekage',
+  population: '35,000',
+}
+const kiri = {
+  name: 'Kiri',
+  founded: 'Unknown',
+  leader: 'Mizukage',
+  population: '40,000',
+}
+
+export { konoha, suna, kiri }
+```
+
+Maintenant, nous allons créer un composant de fonction `VillageCard` qui affichera les informations sur un village spécifique de Naruto. Ce composant importe les informations sur les villages de notre fichier _villages.js_.
+
+```javascript
+import React from 'react'
+import { konoha, suna, kiri } from './villages.js'
+
+const VillageCard = (props) => {
+  const { village } = props
+  return (
+    <div>
+      <h1>{village.name}</h1>
+      <p>Founded: {village.founded}</p>
+      <p>Leader: {village.leader}</p>
+      <p>Population: {village.population}</p>
+    </div>
+  )
+}
+
+export default VillageCard
+```
+
+Enfin, nous allons utiliser notre composant `VillageCard` dans un autre composant pour afficher les informations sur les villages de Naruto.
+
+```javascript
+import React from 'react'
+import VillageCard from './VillageCard'
+
+const VillagePage = () => {
+  return (
+    <div>
+      <VillageCard village={konoha} />
+      <VillageCard village={suna} />
+      <VillageCard village={kiri} />
+    </div>
+  )
+}
+
+export default VillagePage
+```
+
+Dans le snippet précédent, on a récupéré l'export par défaut du fichier _VillageCard.js_ et on l'a renommé _VillageCard_. Oui je sais.. vous n'aviez jamais vu un renommage pareil. Mais l'important, c'est de noter qu'on aurait pu renommer l'import Tartanpion, c'était pareil.
+
+## Résumé
+
+Le premier exemple montre comment utiliser l'instruction `import` pour importer des variables (ici les personnages de Naruto) à partir d'un autre fichier _characters.js_ pour les utiliser dans un autre fichier _index.js_.
+
+Dans le second exemple montre comment utiliser les imports et les exports pour organiser votre code en utilisant des composants de fonction dans un projet React. D'abord, nous avons créé un fichier _villages.js_ qui contient les informations sur les villages de Naruto, puis nous avons importé ces informations dans un composant `VillageCard` pour les afficher. Enfin, nous avons utilisé ce composant dans un autre composant pour afficher les informations sur tous les villages de Naruto.
+
+## Aller plus loin ?
+
+Pour aller plus loin, vous pouvez utiliser les imports pour importer des librairies externes pour ajouter des fonctionnalités supplémentaires à votre projet, comme des bibliothèques de style ou des bibliothèques de composants prédéfinis. Au delà d'aller plus loin, je dirais même que souvent, on commence par ça. La modularité de l'écosystème Javascript est ce qui fait sa grande force. NPM est souvent un très bon ami, alors abusez en !

@@ -1,0 +1,20 @@
+export const navigation = {
+  pages: [
+    { name: 'Accueil', href: '/' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Tags', href: '/tags' },
+    { name: 'Snippets', href: '/snippets' },
+    { name: 'Projets', href: '/projects' },
+    { name: 'Moi', href: '/about' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'Matos', href: '/uses' },
+    { name: 'Now', href: '/now' },
+    { name: 'Stats', href: '/stats' },
+    { name: 'Activité', href: '/activity' },
+    { name: 'Recommendation', href: '/recommends' },
+    { name: 'Le Parcours', href: '/journey' },
+    { name: 'Citations', href: '/quotes' },
+    { name: 'Tweets', href: '/tweets' },
+    { name: 'RSS', href: '/feed.xml' },
+  ],
+}

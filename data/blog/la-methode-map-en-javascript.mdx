@@ -1,0 +1,168 @@
+---
+title: La méthode de tableau .map() en Javascript
+date: '2023-01-21'
+tags: [Javascript, Array, Method]
+draft: false
+summary: Comment utiliser la méthode .map() en Javascript.
+---
+
+## Introduction
+
+Lorsque l'on développe, on passe beaucoup de temps à traiter des données. Vous vous doutez bien qu'elle n'arrive pas toujours comme on le souhaiterait. Heureusement, nous avons la méthode `.map()` pour nous aider dans cette tâche.
+
+Cette méthode est comme un médicament pour vos données, elle vous permet de transformer chaque élément
+d'un tableau en quelque chose qui vous plaît plus. Vous voulez transformer vos données en un format plus
+facile à comprendre? La méthode `.map()` est là pour vous. Vous voulez éliminer les éléments indésirables
+d'un tableau? Utilisez `.map()` pour les transformer en quelque chose de plus acceptable, comme des données
+nulles.
+
+En utilisant `.map()`, vous pouvez facilement transformer vos données en quelque chose de plus
+digeste, quelque chose de plus acceptable pour vous et votre code.
+Mais attention à ne pas abuser de la méthode `.map()`, faudrait quand même pas trop se faciliter la vie non plus hein ? 🙂
+
+## Petite Précision
+
+Et là, en bon padawan Javascript, vous pourriez me dire : Mais c'est je sais déjà faire ça avec une boucle for ?
+
+_Certes_... mais il y a plusieurs raisons pour lesquelles on peut préférer utiliser la méthode `.map()` plutôt qu'une boucle `for..of` en JavaScript:
+
+1. La lisibilité du code: La méthode `.map()` est plus concise et plus lisible que les boucles `for..of`, car elle permet de décrire l'opération de transformation de manière explicite, plutôt que de devoir écrire le code de la boucle pour parcourir chaque élément du tableau.
+2. La performance: Les méthodes de traitement de tableaux telles que `.map()` sont généralement plus rapides que les boucles `for..of` car elles sont implémentées en natif dans le moteur JavaScript et peuvent être optimisées pour une meilleure performance.
+3. La compatibilité: `.map()` est une méthode de l'objet Array de JavaScript, il est donc compatible avec tous les tableaux. Il est donc plus compatible que les boucles `for..of` qui ne sont disponibles qu'à partir d'ES6.
+4. La compatibilité avec les fonctions de haut niveau: La méthode `.map()` est compatible avec d'autres méthodes de traitement de tableaux telles que `.filter()` et `.reduce()` pour créer des opérations de traitement de données plus complexes.
+
+En somme, la méthode `.map()` est un choix judicieux pour les opérations de transformation de tableaux car elle est plus lisible, plus rapide, plus compatible et plus facile à combiner avec d'autres fonctions de haut niveau.
+
+Alors convaincu ? Parfait, on va découvrir la syntaxe dans ce cas.
+
+## Syntaxe
+
+La syntaxe de la méthode `.map()` de javascript est la suivante :
+
+```javascript
+array.map(function(currentValue, index, arr), thisValue)
+```
+
+Comme ça, ça peut faire peur mais c'est hyper simple.
+
+En fait, la fonction de rappel (function) prend trois arguments :
+
+- **_currentValue_** : l'élément actuel dans l'array qui est en cours d'être traité
+- **_index_** (optionnel) : l'index de l'élément actuel dans l'array
+- **_arr_** (optionnel) : l'array sur lequel la méthode `map` est appelée
+
+La méthode retourne un nouveau tableau contenant les résultats de l'application de la fonction de rappel sur chaque élément du tableau d'origine.
+
+Par exemple, je veux prendre chaque donnée dans un tableau pour qu'il me retourne chaque élément multiplié par deux :
+
+```javascript
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let doubleNumbers = numbers.map(function (number) {
+  return number * 2
+})
+
+console.log(doubleNumbers) // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+```
+
+D'ailleurs, depuis ECMAScript 6, vous pouvez utiliser une fonction fléchée pour simplifier la syntaxe:
+
+```javascript
+let doubleNumbers = numbers.map((number) => number * 2)
+```
+
+_Pretty isn't it ?_
+
+On va voir quelques exemples d'utilisation basiques.
+
+## La méthode `.map()` en Javascript Vanilla
+
+On va d'abord se créer un petit tableau d'objets, chacun représentant un personnage de Star Wars avec ses propriétés (nom, espèce, année de naissance).
+
+```javascript
+const characters = [
+  { name: 'Luke Skywalker', species: 'Human', birthYear: '19 BBY' },
+  { name: 'C-3PO', species: 'Droid', birthYear: '112 BBY' },
+  { name: 'R2-D2', species: 'Droid', birthYear: '33 BBY' },
+  { name: 'Darth Vader', species: 'Human', birthYear: '41.9 BBY' },
+  { name: 'Leia Organa', species: 'Human', birthYear: '19 BBY' },
+  { name: 'Owen Lars', species: 'Human', birthYear: '52 BBY' },
+  { name: 'Beru Whitesun lars', species: 'Human', birthYear: '47 BBY' },
+  { name: 'R5-D4', species: 'Droid', birthYear: 'unknown' },
+]
+```
+
+On utilise la méthode `.map()` pour créer un nouveau tableau contenant les noms des personnages uniquement.
+
+```javascript
+const characterNames = characters.map((character) => character.name)
+
+console.log(characterNames)
+```
+
+Le résultat de cette opération sera un tableau contenant les noms des personnages de Star Wars:
+
+```javascript
+;[
+  'Luke Skywalker',
+  'C-3PO',
+  'R2-D2',
+  'Darth Vader',
+  'Leia Organa',
+  'Owen Lars',
+  'Beru Whitesun lars',
+  'R5-D4',
+]
+```
+
+## La méthode `.map` avec React
+
+On va maintenant voir ce que ça donne dans une application React.
+
+D'abord, on crée un composant React qui prend en entrée un tableau de personnages de Star Wars et les affiche sous forme de liste.
+
+```javascript
+import React from 'react'
+
+function CharactersList({ characters }) {
+  return (
+    <ul>
+      {characters.map((character) => (
+        <li key={character.name}>{character.name}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+On utilise la méthode `.map()` pour parcourir chaque personnage dans le tableau, et pour chaque personnage, on retourne un élément `<li>` contenant son nom. Il est important d'ajouter une clé unique pour chaque élément de la liste, comme l'attribut _key_ pour éviter les warnings de React (enfin surtout pour favoriser la réconciliation, et donc, les performances de l'application en générale).
+
+```javascript
+{
+  characters.map((character) => <li key={character.name}>{character.name}</li>)
+}
+```
+
+On utilise ensuite notre composant _CharactersList_ en lui passant le tableau de personnages de Star Wars comme propriété.
+
+```javascript
+const characters = [
+  { name: 'Luke Skywalker', species: 'Human', birthYear: '19 BBY' },
+  { name: 'C-3PO', species: 'Droid', birthYear: '112 BBY' },
+  { name: 'R2-D2', species: 'Droid', birthYear: '33 BBY' },
+  { name: 'Darth Vader', species: 'Human', birthYear: '41.9 BBY' },
+  { name: 'Leia Organa', species: 'Human', birthYear: '19 BBY' },
+  { name: 'Owen Lars', species: 'Human', birthYear: '52 BBY' },
+  { name: 'Beru Whitesun lars', species: 'Human', birthYear: '47 BBY' },
+  { name: 'R5-D4', species: 'Droid', birthYear: 'unknown' },
+]
+
+render(<CharactersList characters={characters} />, document.getElementById('root'))
+```
+
+## Résumé
+
+Dans le premier exemple, nous avons utilisé la méthode `.map()` pour créer un nouveau tableau contenant les noms des personnages de Star Wars à partir d'un tableau contenant des objets représentant ces personnages. Dans le second exemple, nous avons utilisé la méthode `.map()` pour parcourir un tableau de personnages de Star Wars dans un composant React, et pour chaque personnage, nous avons retourné un élément `<li>` contenant son nom. Cela nous permet de créer une liste à partir d'un tableau de données.
+
+## Aller plus loin ?
+
+La méthode `.map()` en JavaScript permet de transformer les éléments d'un tableau en exécutant une fonction sur chaque élément. Cela permet de modifier leur valeur ou de créer de nouveaux tableaux basés sur les propriétés de ces éléments. Il est aussi possible d'utiliser cette méthode en combinaison avec d'autres outils de traitement de tableau tels que `.filter()` et `.reduce()` pour des opérations de traitement de données plus élaborées.

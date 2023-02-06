@@ -1,0 +1,140 @@
+---
+title: 'Markdown Code Block'
+date: '2022-12-22'
+tags: [Markdown]
+draft: false
+summary: Les blocs de code en Markdown et la syntaxe.
+images: []
+layout: PostSimple
+---
+
+## Syntaxe basique
+
+Utiliser les triples backticks pour créer un bloc de code en markdown.
+C'est la touche `Alt Gr + 7` pour faire les backticks.
+
+````
+```language
+your code goes here
+```
+````
+
+Exemple:
+
+La fonction `debounce` suivante:
+
+````
+```javascript
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
+}
+```
+````
+
+va s'afficher comme ça:
+
+```javascript
+function debounce(func, timeout = 300) {
+  let timer
+  return (...args) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      func.apply(this, args)
+    }, timeout)
+  }
+}
+```
+
+Chouette non ?
+
+## Nom de fichier
+
+Rajouter `:filename.ext` après `language` pour rendre le bloc avec un label représentant le nom du fichier en haut du bloc.
+
+Example:
+
+Je connais rien à Java mais ça suffira pour l'exemple suivant :
+
+````
+```java:GetRowValue.java
+private String[] getRowValue(Integer i, List<BillDetail> billDetail) {
+  String[] rowValue = new String[5];
+  rowValue[0] = (i).toString();
+  i = i - 1;
+
+  rowValue[1] = billDetail.get(i).getTenSanPham();
+  rowValue[2] = billDetail.get(i).getSoLuong().toString();
+  rowValue[3] = new DecimalFormat("#,###").format(Integer.parseInt(billDetail.get(i).getDonGiaSanPham()));
+  rowValue[4] = new DecimalFormat("#,###").format(billDetail.get(i).getThanhTien());
+  return rowValue;
+}
+```
+````
+
+va s'afficher ainsi:
+
+```java:GetRowValue.java
+private String[] getRowValue(Integer i, List<BillDetail> billDetail) {
+  String[] rowValue = new String[5];
+  rowValue[0] = (i).toString();
+  i = i - 1;
+
+  rowValue[1] = billDetail.get(i).getProductName();
+  rowValue[2] = billDetail.get(i).getQuantity().toString();
+  rowValue[3] = new DecimalFormat("#,###").format(Integer.parseInt(billDetail.get(i).getProductPrice()));
+  rowValue[4] = new DecimalFormat("#,###").format(billDetail.get(i).getSubTotal());
+
+  return rowValue;
+}
+```
+
+Pas mal du tout. J'ai presque l'impression d'être un boomer quand je vois ce bloc.
+
+## Les lignes surlignés et les numéros de ligne
+
+- Rajouter la propriété `{numbers}`après le `language` pour surligner les lignes correspondantes.
+- Rajouter la propriété `showLineNumbers`après le `language` pour afficher des numéros de lignes.
+
+Exemple:
+
+Un snippet basique en _html_.
+
+````
+```html {1,4-6,10} showLineNumbers
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello world</title>
+  </head>
+  <body>
+    <h1>Hello world</h1>
+  </body>
+</html>
+```
+````
+
+deviendra:
+
+```html {1,4-6,10} showLineNumbers
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hello world</title>
+  </head>
+  <body>
+    <h1>Hello world</h1>
+  </body>
+</html>
+```
+
+Super. Vous avez de quoi agrémenter vos rendu de bloc de code maintenant.

@@ -1,0 +1,29 @@
+---
+title: Générer facilement une clé SSH pour Github
+date: '2022-12-17'
+tags: [bash, oneliner]
+draft: false
+summary: Générer facilement une clé SSH pour Github.
+images: []
+layout: PostSimple
+---
+
+Pour créer une clé SSH en une ligne de commande :
+
+```bash
+MAIL="contact@monMail.com" ssh-keygen -t rsa -b 4096 -C "$MAIL" -f "$HOME/.ssh/id_rsa" -P "" && cat ~/.ssh/id_rsa.pub
+```
+
+Explication:
+
+- `MAIL=`: correspond à une variable qui va stocker votre adresse email pour l'associer à la clé.
+- `ssh-keygen`: c'est la commande pour générer une clé SSH.
+- `-t rsa`: c'est un argument de `ssh-keygen` pour spécifier le chiffrement utilisé pour la clé.
+- `-b 4096`: c'est un argument de `ssh-keygen` pour spécifier le nombre de bits dans la clé à créer. _2048_ est considéré comme suffisant mais, comme on dit, qui peut le plus peut le moins.
+- `-C "$MAIL"`: c'est pour associer le mail précédemment créé à la clé ssh.
+- `-f "$HOME/.ssh/id_rsa"`: c'est mettre la clé privé dans le dossier habituel où l'on stocke ses clés SSH, et que l'on va l'appeler _id_rsa_.
+- `-P ""`: c'est pour dire à la commande que l'on laisse une passphrase vide.
+- `&&`: c'est une instruction dans l'environnement Linux qui dit en gros : "si la commande précédente a fonctionné correctement fais la suite".
+- `cat ~/.ssh/id_rsa.pub`: c'est la commande qui va afficher dans le terminal la clé publique associé à la clé privé que l'on vient de créer.
+
+Il ne reste plus qu'à copier ce qui s'affiche dans le terminal et le copier dans votre compte Github.

@@ -1,0 +1,23 @@
+---
+title: Vérifier si la localisation est disponible sur le navigateur
+date: '2023-01-17'
+tags: [javascript, bom]
+draft: false
+summary: Pour vérifier que la géolocation est activé sur le navigateur.
+images: []
+layout: PostSimple
+---
+
+Un snippet pour vérifier que la géolocalisation est bien activée sur le navigateur.
+
+```js showLineNumbers
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    var lat = position.coords.latitude,
+      lon = position.coords.longitude
+    console.log('Geolocation - Latitude: ' + lat + ', Longitude: ' + lon)
+  })
+} else {
+  console.log('Geolocation is not supported for this Browser/OS version yet.')
+}
+```

@@ -1,0 +1,181 @@
+---
+title: Les Objets en Javascript
+date: '2023-01-11'
+tags: [Javascript, Objects]
+draft: false
+summary: Comprendre les objets en Javascript.
+---
+
+## Introduction
+
+Si vous voulez devenir un maître Pokémon, comme la majorité des êtes humains, il est important de comprendre les objets en JavaScript !
+
+Les objets sont à la base de tout en programmation, et en particulier en JavaScript. Ils sont utilisés pour stocker des informations sur les différents Pokémon que vous rencontrez dans votre aventure, tels que leur nom, leurs types, leurs attaques et bien plus encore. Et juste comme vous devez apprendre à connaître et à utiliser les capacités de vos Pokémon pour vaincre vos adversaires, vous devez également apprendre à maîtriser les objets en JavaScript pour devenir un développeur expérimenté.
+
+Alors, si vous êtes prêt à devenir un maître des objets JavaScript et à capturer tous les Pokémon, cet article est fait pour vous !
+
+## Syntaxe
+
+Voici la syntaxe basique pour créer un objet en JavaScript:
+
+```javascript
+var monObjet = {
+  variable1: valeur1,
+  variable2: valeur2,
+  tableau1: [élément1, élément2, élément3],
+  sousObjet: {
+    variable3: valeur3,
+    fonction1: function () {
+      // code de la fonction
+    },
+  },
+}
+```
+
+Un objet en JavaScript peut contenir des variables, des tableaux, d'autres objets et des fonctions:
+
+- les variables sont définies en utilisant la syntaxe `nomDeVariable: valeur`.
+- les tableaux en utilisant la syntaxe `nomDeTableau: [éléments]`.
+- les objets en utilisant la syntaxe `nomDeSousObjet: {}`.
+- les fonctions en utilisant la syntaxe `nomDeFonction: function() {}`.
+
+Les propriétés et méthodes d'un objet sont séparées par des virgules.
+
+Pour accéder aux propriétés d'un objet, on utilise la _dot notation_ ou la _bracket notation_. En français, respectivement, ça donne la notation en points, et la notation en crochets. C'est quand même moins sexy.
+En gros, soit on récupère les propriétés de l'objet en utilisant le point `.`, soit avec les crochets `[]`.
+
+Voici quelques exemples d'utilisation de l'accès aux propriétés d'un objet:
+
+```javascript
+console.log(monObjet.variable1) // Affiche la valeur de la variable1
+console.log(monObjet.tableau1[1]) // Affiche le second élément du tableau1
+console.log(monObjet.sousObjet.variable3) // Affiche la valeur de la variable3 dans le sous-objet
+monObjet.fonction1() // Appelle la fonction1 de l'objet
+```
+
+Il est également possible de modifier les propriétés d'un objet de la même manière :
+
+```javascript
+monObjet.variable1 = nouvelleValeur
+monObjet.tableau1[1] = nouvelElement
+monObjet.sousObjet.variable3 = nouvelleValeur
+```
+
+On peut ajouter une propriété à un objet en utilisant la _dot notation_ ou la _bracket notation_:
+
+```javascript
+monObjet.nouvellePropriete = nouvelleValeur
+monObjet['nouvellePropriete'] = nouvelleValeur
+```
+
+Enfin, il est possible de supprimer une propriété d'un objet en utilisant la méthode "delete":
+
+```javascript
+delete monObjet.variable1
+```
+
+Pour faire court, les objets en JavaScript sont des structures de données très flexibles qui permettent de stocker des variables, des tableaux, d'autres objets et des fonctions, et de les manipuler de diverses manières. C'est hyper pratique !
+
+## Les objets littéraux en Javascript
+
+Il existe plusieurs façon de créer un objet. Dans les exemples qui vont suivre, je fais le choix de vous présenter la méthode de création des objets littéraux en Javascript car c'est la plus simple, et on l'utilise tous les jours.
+
+Voici un nouvel exemple d'utilisation des objets littéraux en JavaScript pour créer un univers de Pokémon:
+
+```javascript
+// Création d'un objet "Pikachu" en utilisant un objet littéral.
+var Pikachu = {
+  nom: 'Pikachu',
+  type: 'électrique',
+  niveau: 25,
+  attaques: ['éclair', 'tonnerre', 'vive-attaque'],
+  afficherInfos: function () {
+    console.log('Nom : ' + this.nom)
+    console.log('Type : ' + this.type)
+    console.log('Niveau : ' + this.niveau)
+    console.log('Attaques : ' + this.attaques.join(', '))
+  },
+}
+
+// Création d'un objet "Salameche" en utilisant un objet littéral.
+var Salameche = {
+  nom: 'Salamèche',
+  type: 'feu',
+  niveau: 15,
+  attaques: ['flammèche', 'griffe', 'rugissement'],
+  afficherInfos: function () {
+    console.log('Nom : ' + this.nom)
+    console.log('Type : ' + this.type)
+    console.log('Niveau : ' + this.niveau)
+    console.log('Attaques : ' + this.attaques.join(', '))
+  },
+}
+
+// Utilisation de la méthode afficherInfos sur les objets Pikachu et Salameche
+Pikachu.afficherInfos()
+Salameche.afficherInfos()
+```
+
+L'objet contient des propriétés comme le nom, le type, le niveau et les attaques, ainsi qu'une méthode `afficherInfos` qui permet d'afficher toutes ces informations dans la console.
+Pour afficher les infos de nos Pokemon dans la console, on met le nom de notre objet, un point, puis la méthode `afficherInfos` sur les objets "Pikachu" et "Salameche". Ce qui donne :
+
+```javascript
+Nom: Pikachu
+Type: électrique
+Niveau: 25
+Attaques: éclair, tonnerre, vive - attaque
+```
+
+## Les objets littéraux avec React
+
+Voici un exemple d'utilisation des objets littéraux en React pour créer un univers d'arènes Pokémon :
+
+```javascript
+import React from 'react'
+
+// Création du composant "Arena" qui affiche les informations d'une arène
+const Arena = (props) => {
+  return (
+    <div>
+      <h2>{props.nom}</h2>
+      <p>Type : {props.type}</p>
+      <p>Capacité : {props.capacite}</p>
+    </div>
+  )
+}
+
+// Création de l'arène "Bourg Palette" en utilisant une notation littérale
+const bourgPalette = {
+  nom: 'Bourg Palette',
+  type: 'normal',
+  capacite: 2000,
+}
+
+// Création de l'arène "Mont Sélénite" en utilisant une notation littérale
+const montSelenite = {
+  nom: 'Mont Sélénite',
+  type: 'glace',
+  capacite: 2500,
+}
+
+// Utilisation du composant "Arena" pour afficher les arènes "Ville Palette" et "Mont Sélénite"
+const App = () => {
+  return (
+    <div>
+      <Arena {...bourgPalette} />
+      <Arena {...montSelenite} />
+    </div>
+  )
+}
+```
+
+Dans cet exemple, nous avons créé un composant React _Arena_ qui prend en entrée les propriétés d'une arène (nom, type, capacité) et les affiche à l'écran. Ensuite, nous avons créé les objets littéraux `bourgPalette` et `montSelenite` qui contiennent les propriétés spécifiques de ces deux arènes. Enfin, nous avons utilisé le composant _Arena_ pour afficher ces deux arènes en utilisant la notation _spread operator_ pour passer toutes les propriétés de l'objet littéral en tant que props du composant.
+Nous avons créé un composant _Arena_ qui prend en entrée les propriétés d'une arène et les affiche à l'écran. Ensuite, nous avons créé des objets littéraux `bourgPalette` et `montSelenite` qui contiennent les propriétés spécifiques de ces deux arènes pour les passer en propriété dans le composant _Arena_ et les afficher.
+
+## Résumé
+
+Dans le premier exemple, nous avons créé les objets _Pikachu_ et _Salameche_ en utilisant la notation littérale de création d'objet en Javascript et dans le second exemple, nous avons vu comment utiliser les objets littéraux en React pour créer un univers d'arènes Pokémon.
+
+## Aller plus loin ?
+
+Si vous voulez connaître une autre méthode pour créer des objets, je vous suggère d'aller regarder la méthode `Object.create` pour créer des objets en Javascript.
