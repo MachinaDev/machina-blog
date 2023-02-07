@@ -95,8 +95,7 @@ export default function CommandPalette({ navigation }) {
                 />
               </div>
               {filterednavigation.length > 0 && (
-                // <Combobox.Options static className="max-h-30 overflow-y-auto py-4 text-sm">
-                <Combobox.Options className="max-h-30 overflow-y-auto py-4 text-sm">
+                <Combobox.Options static className="max-h-30 overflow-y-auto py-4 text-sm">
                   {filterednavigation.map((page) => (
                     <Combobox.Option key={page.name} value={page}>
                       {({ active }) => (
