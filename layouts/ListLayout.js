@@ -50,7 +50,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
         <ul>
           {!filteredBlogPosts.length && 'Aucun article trouvé.'}
           {displayPosts.map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
+            const { slug, date, title, summary, tags, layout } = frontMatter
 
             return (
               <div
@@ -71,12 +71,21 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                       <div className="space-y-1">
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link
-                              href={`/blog/${slug}`}
-                              className="text-gray-900 transition duration-500 ease-in-out hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-500"
-                            >
-                              {title}
-                            </Link>
+                            {layout === 'PostSimple' ? (
+                              <Link
+                                href={`/snippets/${slug}`}
+                                className="text-gray-900 transition duration-500 ease-in-out hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-500"
+                              >
+                                {title}
+                              </Link>
+                            ) : (
+                              <Link
+                                href={`/blog/${slug}`}
+                                className="text-gray-900 transition duration-500 ease-in-out hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-500"
+                              >
+                                {title}
+                              </Link>
+                            )}
                           </h2>
                         </div>
                         <div className="flex flex-wrap">
