@@ -18,7 +18,7 @@ const ScrollTopAndComment = () => {
   return (
     <>
       <div
-        className={`fixed right-8 bottom-9 hidden flex-col gap-6 ${show ? 'md:flex' : 'md:hidden'}`}
+        className={`fixed bottom-9 right-8 hidden flex-col gap-6 ${show ? 'md:flex' : 'md:hidden'}`}
       >
         <div className="mb-16 mr-4">
           <ClapButton id="diy-fish-holder" namespace="post" hideCounterIfLessThan={1} />

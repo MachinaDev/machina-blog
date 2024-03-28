@@ -133,7 +133,7 @@ export default function Now(currentInfo) {
       <div>
         <div className="my-2">
           <h3>Où je suis et ce que je suis en train de faire ?</h3>
-          <div className=" mt-4 mb-6 text-xs text-neutral-700 dark:text-neutral-400">
+          <div className=" mb-6 mt-4 text-xs text-neutral-700 dark:text-neutral-400">
             Cette page a été automatiquement générée le {date}-{month}-{year} à {hour}&nbsp;heures{' '}
             {minute}&nbsp;minutes
           </div>
@@ -141,7 +141,7 @@ export default function Now(currentInfo) {
         {/* Misc */}
         <div>
           <div className="flex justify-between gap-5">
-            <div className="mt-2 mb-10 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
+            <div className="mb-10 mt-2 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
               <span className="ml-2 font-semibold">Où:</span> <span>Angoulême, France</span>
               <br />
               <span className="ml-2 font-semibold">Météo:</span>{' '}
@@ -159,7 +159,7 @@ export default function Now(currentInfo) {
               </span>
             </div>
 
-            <div className="mt-2 mb-10 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
+            <div className="mb-10 mt-2 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
               <span className="ml-2 font-semibold">Livre du moment:</span>{' '}
               <a
                 href={bookOfTheMoment.link}
@@ -181,7 +181,7 @@ export default function Now(currentInfo) {
           </div>
 
           <div className="-my-6 flex justify-between gap-5">
-            <div className="mt-2 mb-10 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
+            <div className="mb-10 mt-2 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
               <span className="ml-2 font-semibold">Date:</span>{' '}
               <span>{TodayDate.format('DD/MM/YYYY')}</span>
               <br />
@@ -192,7 +192,7 @@ export default function Now(currentInfo) {
               </span>
             </div>
 
-            <div className="mt-2 mb-10 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
+            <div className="mb-10 mt-2 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
               {/* <span className="ml-2 font-semibold">En train d'écouter:</span>{' '}
               <span>
                 {data?.songUrl ? (
