@@ -25,10 +25,10 @@ export default function Home({ posts }) {
           <div className="pt-6">
             <h1 className="pb-6 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
               Bienvenue{' '}
-              <span className="text-primary-color-500 dark:text-primary-color-dark-500">Anon</span>
+              <span className="text-primary-color-500 dark:text-primary-color-dark-500">à toi</span>
             </h1>
             <h2 className="prose pt-5 text-lg text-gray-600 dark:text-gray-300">
-              {`Cher visiteur, tu viens de te perde sur ${siteMetadata.description}. Je travaille en tant que Developpeur Web Fullstack, passioné par mon activité. Pendant mon temps libre, je surveille les cryptomonnaies et j'étudie chaque jour pour être meilleur qu'hier.`}
+              {`Cher visiteur, tu viens de te perde dans ${siteMetadata.description}. Je consultant en IT & Developpeur Web Fullstack, passioné par  l'informatique et ses possibilités.`}
             </h2>
             <p className="pt-5 text-lg leading-7 text-slate-600 dark:text-slate-300 sm:block md:hidden lg:hidden">
               Ce site est l'endroit où je partage{' '}

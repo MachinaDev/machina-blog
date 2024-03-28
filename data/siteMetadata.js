@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'Blog | Maxime NOEL',
   author: 'Maxime NOEL',
   headerTitle: 'Mon grain de sable',
-  description: 'mon blog où tu découvriras les idées et les choses qui me passionnent',
+  description: 'mon jardin numérique où tu découvriras les idées et les choses qui me passionnent',
   snippets: 'Quelques snippets collecté par Maxime',
   language: 'fr-fr',
   theme: 'dark', // system, dark or light

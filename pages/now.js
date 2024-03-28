@@ -218,18 +218,20 @@ export default function Now(currentInfo) {
         </div>
         {/* Work */}
         <div className="pb-4">
-          <p>Je travaille en tant que Développeur Web Fullstack.</p>
+          <p>Je travaille en tant que Consultant IT & Développeur Web Fullstack.</p>
           <br />
           <p>
-            Ce que j'adore faire, c'est principalement du NextJS mélangé avec du Tailwind ou du
-            Chakra, propulsé par un truc du genre Firebase ou du Prisma. Si t'as rien compris, c'est
-            pas grave, je disais juste que j'adore le frontend de manière générale, et que j'aime le
-            backend <span className="italic">as a service</span>.
+            Là où je prends le plus de plaisir, c'est de partir de zéro. Une feuille blanche, un
+            désir, et de mettre tout en oeuvre pour que la technique tende vers ce désir. Comment
+            amener mon client vers sa destination de rêve, pour plus de clients, plus d'ergonomie ou
+            juste pour faire mieux que mieux. Si je peux coder, c'est encore mieux. J'adore faire du
+            NextJS mélangé avec du Tailwind ou du Chakra, propulsé par un truc du genre Firebase ou
+            du Prisma. Si t'as rien compris, c'est pas grave, je disais juste que j'adore coder.{' '}
           </p>
           <br />
           <p>
-            Je développe de plus en plus avec React Native et j'adore ça. Même si côté maintenance,
-            c'est parfois Verdun.
+            Je développe de plus en plus avec React Native, même si côté maintenance, c'est parfois
+            Verdun.
           </p>
           <br />
           <br />
@@ -264,11 +266,6 @@ export default function Now(currentInfo) {
             m'a donné envie de transformer ce portfolio en un blog.
           </p>
           <br />
-          <p>
-            Je suis très curieux. Avec des goûts assez particuliers en matière de connaissance. Du
-            coup, en ce qui concerne la suite de ce site, je pense que je vais vous partager mes
-            connaissances sur des sujets assez improbables. J'espère que cela vous plaira.
-          </p>
           <br />
           <p>
             Prochainement, je vais aussi réaliser un article sur l'utilisation d'Obsidian, un outil

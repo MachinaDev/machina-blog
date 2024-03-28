@@ -18,17 +18,18 @@ export default function Timeline() {
             <FaBlackTie className="animate-none" />
           </span>
           <h3 className="flex items-center text-base  font-semibold text-gray-900 dark:text-white">
-            Recherche un poste frontend
+            Consultant IT & Fullstack Web Developer
             <span className="mr-2 ml-3 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-200 dark:text-blue-800">
               Actuellement
             </span>
           </h3>
           <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-            Décembre 2022
+            Novembre 2021 - Full Time
           </time>
           <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-            J'ai pris de l'expérience, j'ai gagné en confiance. Je me suis prouvé que ma
-            reconvertion est un succès. Il est temps d'améliorer mes compétences avec des Seniors.
+            Pour les petits et les gros projets. Je vous accompagne pour réaliser votre vision. La
+            mienne, c'est de travailler AVEC vous. Le but de cette collaboration est que nous
+            restions tous meilleurs qu'avant.
           </p>
         </li>
         <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white px-4 py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
@@ -45,7 +46,7 @@ export default function Timeline() {
             Après 4 ans de dur labeur et de beaucoup de plaisir, je cède ma participation.
           </p>
           <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-            Il est temps de me consacrer à temps plein à ce que j'aime : le développement Web.
+            Il est temps de me consacrer à temps plein à ce que j'aime : le Numérique'.
           </p>
         </li>
         <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white px-4 py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
@@ -67,7 +68,7 @@ export default function Timeline() {
             Création de l'entreprise MachinaDev en Freelance
           </h3>
           <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-            Novembre 2021
+            Novembre 2021 - Part Time
           </time>
         </li>
         <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white px-4 py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
@@ -176,11 +177,14 @@ export default function Timeline() {
                       <RiDoorClosedLine />
                     </span>
                     <h3 className="text-base font-semibold text-gray-900 dark:text-white">
-                      Diplômé en Business & Management
+                      Bachelor's Degree en Business & Management
                     </h3>
                     <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                      Licence européenne DUETI à Edimbourg
+                      Juin 2010
                     </time>
+                    <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                      Herriot Watt University - Edimbourg
+                    </p>
                   </li>
                   <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white  px-4  py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
                     <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-fuchsia-200 ring-8 ring-white dark:bg-fuchsia-900 dark:ring-gray-900">

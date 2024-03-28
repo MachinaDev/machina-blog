@@ -66,8 +66,7 @@ export default function AuthorLayout({ children, frontMatter }) {
                 animationDelay={300}
                 animationDuration={3000}
               >
-                {text1} Actuellement, je réalise différents projets pour maîtriser intégralement
-                NextJS.{' '}
+                {text1}{' '}
               </RoughNotation>
             </p>
             <br />
@@ -89,7 +88,7 @@ export default function AuthorLayout({ children, frontMatter }) {
                 {' '}
                 les nouveautés des dernières releases de NextJS.{' '}
               </span>
-              En parrallèle{' '}
+              {/* En parrallèle{' '}
               <RoughNotation
                 type="underline"
                 show={true}
@@ -100,7 +99,7 @@ export default function AuthorLayout({ children, frontMatter }) {
               >
                 je recherche un poste de développeur Front-End où je pourrais découvrir de nouveaux
                 challenges.
-              </RoughNotation>
+              </RoughNotation> */}
             </p>
             <p className="hidden pt-4 text-lg leading-7 text-slate-600 dark:text-slate-300 md:block">
               J'ai une curiosité sans limites et je cherche à me dépasser chaque jours. En ce
@@ -119,7 +118,7 @@ export default function AuthorLayout({ children, frontMatter }) {
                   les nouveautés des dernières releases de NextJS.{' '}
                 </span>
               </RoughNotation>
-              En parallèle{' '}
+              {/* En parallèle{' '}
               <RoughNotation
                 type="underline"
                 show={true}
@@ -130,14 +129,14 @@ export default function AuthorLayout({ children, frontMatter }) {
               >
                 je recherche un poste de développeur Front-End où je pourrais découvrir de nouveaux
                 challenges.
-              </RoughNotation>
+              </RoughNotation> */}
             </p>
             <br />
             <p>
-              Je suis un grand fan du mouvement open source. Je passe d'ailleurs un temps
+              Par ailleurs, je participe activement au mouvement open source. Je passe un temps
               considérable sur Github à m'émerveiller de l'ingéniosité de l'Homme, même si c'est
-              pour réinventer la roue. Si vous avez une projet en tête, cela peut m'intéresser de
-              contribuer à son développement si je suis emballé donc n'hésitez pas à me contacter.{' '}
+              pour réinventer la roue. Si vous avez une projet en tête, et si je suis emballé,
+              n'hésitez pas à me contacter.{' '}
               <Link
                 href={'mailto:contact@machina-dev.com'}
                 className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
@@ -164,19 +163,18 @@ export default function AuthorLayout({ children, frontMatter }) {
                 href={'/uses'}
                 className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
               >
-                Sur ce lien
+                Un petit lien
               </Link>{' '}
-              vous trouverez le matériel que j'utilise régulièrement pour bosser ou pour
-              procrastiner bien sûr.
+              où vous trouverez le matériel et les services que j'utilise régulièrement.
             </p>
             <br />
             <h1>A propos de ce site</h1>
             <p>
               Bienvenue sur ma petite parcelle d'internet. Ce site fonctionne comme un
-              blog/portfolio, un endroit où je peux partager mes idées sur ce qu'il me plaît. Bien
-              entendu, ce sont mes vérités et elles n'engagent que moi. Mais je pense qu'il est
-              important de découvrir un individu dans sa globalité avant de collaborer. Cela vous
-              donne un bref aperçu de qui je suis.
+              blog/portfolio, un endroit où je peux partager mes idées sur ce qu'il me plaît (quand
+              je le mets à jour...). Bien entendu, ce sont mes vérités et elles n'engagent que moi.
+              Mais je pense qu'il est important de découvrir un individu dans sa globalité avant de
+              collaborer. Cela vous donne un bref aperçu de qui je suis.
             </p>
             <p>
               Je veux quand même remercier ceux qui m'ont inspiré pour ce projet, sur la partie
